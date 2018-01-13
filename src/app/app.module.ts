@@ -14,7 +14,9 @@ import {HomeComponent} from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ProductService} from './shared/product.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { FilterPipe } from './pipe/filter.pipe';
+import {FilterPipe} from './pipe/filter.pipe';
+import {HttpModule} from '@angular/http';
+import {WebSocketService} from './shared/web-socket.service';
 
 
 const routeConfig: Routes = [
@@ -23,15 +25,15 @@ const routeConfig: Routes = [
 ];
 
 @NgModule({
-    declarations: [
-  AppComponent,
-  NavbarComponent,
-  FooterComponent,
-  SearchComponent,
-  CarouselComponent,
-  ProductComponent,
-  StarsComponent,
-  ProductDetailComponent,
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    SearchComponent,
+    CarouselComponent,
+    ProductComponent,
+    StarsComponent,
+    ProductDetailComponent,
     HomeComponent,
     FilterPipe
   ],
@@ -39,9 +41,10 @@ const routeConfig: Routes = [
     BrowserModule,
     RouterModule.forRoot(routeConfig),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

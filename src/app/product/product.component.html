@@ -10,7 +10,7 @@
 
 </div>
 
-<div *ngFor="let product of products | filter:'title':keyword" class= "col-md-4 col-sm-4 col-lg-4">
+<div *ngFor="let product of products | async" class= "col-md-4 col-sm-4 col-lg-4">
   <div class="thumbnail">
     <img src="http://placehold.it/320x150">
     <div class="caption">
